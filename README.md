@@ -6,6 +6,12 @@
 
 ## English
 
+**Disclaimer**
+
+**This project is provided for educational and research purposes only.**
+**The authors and contributors are not responsible for any misuse, damage, or legal consequences resulting from the use of this software. Users are solely responsible for complying with applicable local laws and regulations.**
+**Use at your own risk.**
+
 **Bypass DPI** by employing SNI spoofing and clean‑IP routing. This GUI‑based tool launches the SNI‑spoofing engine, displays real‑time route statistics, and logs activity.
 
 ### 🎯 Project Goal
@@ -45,6 +51,11 @@ The application will start the SNI engine. When the banner reads **“⚠️ Ple
 
 ## فارسی
 
+**سلب مسئولیت**
+**این پروژه فقط برای اهداف آموزشی و تحقیقاتی ارائه شده است.**
+**نویسندگان و مشارکت‌کنندگان هیچ مسئولیتی در قبال هرگونه سوءاستفاده، آسیب یا عواقب قانونی ناشی از استفاده از این نرم‌افزار ندارند. کاربران صرفاً مسئول رعایت قوانین و مقررات محلی مربوطه هستند**.
+**استفاده با مسئولیت خودتان.**
+
 **عبور از DPI** با استفاده از تقلب‌سازی SNI و مسیرهای IP تمیز. این ابزار گرافیکی، موتور SNI‑spoofing را اجرا می‌کند، آمار مسیر را به‑صورت لحظه‌ای نشان می‌دهد و خروجی‌ها را ثبت می‌کند.
 
 ### 🎯 هدف پروژه
@@ -71,7 +82,10 @@ venv\Scripts\pip install --upgrade customtkinter
 ```powershell
 venv\Scripts\python gui.py
 ```
+
 برنامه موتور SNI را شروع می‌کند. هنگامی که بنر **«⚠️ لطفاً V2Ray را به‌صورت جداگانه با فایل پیکربندی همراه اجرا کنید.»** را می‌بینید، نمونهٔ V2Ray/Xray خود را به‌صورت دستی اجرا کنید.
+
+**فايل اجرايي و آماده براي كار در https://github.com/mononoor/SNI-Spoofing/releases قابل دانلود و اجرا است**
 
 ### 📂 ساختار مخزن
 - `gui.py` – رابط گرافیکی اصلی با CustomTkinter (اتوماسیون V2Ray حذف شده).
@@ -82,4 +96,6 @@ venv\Scripts\python gui.py
 
 
 ---
+اين پروژه برداشت آزادی از پروژه پترنيها است. كه همينجا كمال تشكر را از ايشان دارم
+https://github.com/patterniha/SNI-Spoofing
 *© 2026 Patterniha – All rights reserved.*
