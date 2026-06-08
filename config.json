@@ -1,7 +1,49 @@
 {
-  "LISTEN_HOST": "0.0.0.0",
+  "LISTEN_HOST": "127.0.0.1",
   "LISTEN_PORT": 40443,
-  "CONNECT_IP": "188.114.98.0",
+  "CONNECT_IPS": [
+    "104.17.148.22",
+    "104.19.229.21",
+    "162.159.192.1",
+    "162.159.192.76",
+    "162.159.193.5",
+    "188.114.96.0",
+    "188.114.97.0",
+    "188.114.98.0",
+    "188.114.99.0",
+    "172.64.40.23",
+    "172.64.41.15"
+  ],
+  "FAKE_SNIS": [
+    "www.speedtest.net",
+    "hcaptcha.com",
+    "auth.vercel.com",
+    "security.vercel.com",
+    "github.com",
+    "developers.cloudflare.com",
+    "discord.com",
+    "time.is",
+    "zula.ir",
+    "varzesh3.com",
+    "waze.com",
+    "canva.com",
+    "farsnews.ir"
+  ],
   "CONNECT_PORT": 443,
-  "FAKE_SNI": "auth.vercel.com"
+  "INTERFACE_IPV4": null,
+  "DATA_MODE": "tls",
+  "BYPASS_METHOD": "wrong_ttl",
+  "BYPASS_LIST": [
+    "geosite:ir",
+    "geoip:ir",
+    "localhost",
+    "127.0.0.1"
+  ],
+  "V2RAY_LINKS": [
+    "trojan://humanity@127.0.0.1:40443?security=tls&sni=www.creationlong.org&insecure=1&allowInsecure=1&type=ws&host=www.creationlong.org&path=%2Fassignment#cloud",
+    "vless://b831381d-6324-4d53-ad4f-8cda48b30811@127.0.0.1:40443?security=tls&sni=www.speedtest.net&type=ws&host=www.speedtest.net&path=%2F#VLESS-WS-Speedtest",
+    "trojan://humanity@127.0.0.1:40443?security=tls&sni=github.com&type=tcp&headerType=none#Trojan-TCP-Github",
+    "vless://b831381d-6324-4d53-ad4f-8cda48b30811@127.0.0.1:40443?security=reality&sni=discord.com&type=tcp&pbk=YOUR_PUBLIC_KEY&fp=chrome#VLESS-Reality-Discord",
+    "trojan://humanity@127.0.0.1:40443?security=tls&sni=auth.vercel.com&type=grpc&serviceName=my-grpc-service#Trojan-gRPC-Vercel"
+  ]
 }

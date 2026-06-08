@@ -47,6 +47,14 @@ class FakeTcpInjector(TcpInjector):
                 packet.tcp.seq_num = (connection.syn_seq + 1 - len(packet.tcp.payload)) & 0xffffffff
                 connection.fake_sent = True
                 self.w.send(packet, True)
+            elif connection.bypass_method == "wrong_ttl":
+                if packet.ipv4:
+                    packet.ipv4.ttl = 8
+                connection.fake_sent = True
+                self.w.send(packet, True)
+                connection.monitor = False
+                connection.t2a_msg = "fake_data_ack_recv"
+                connection.running_loop.call_soon_threadsafe(connection.t2a_event.set, )
 
 
 
@@ -56,8 +64,6 @@ class FakeTcpInjector(TcpInjector):
 
     def on_unexpected_packet(self, packet: Packet, connection: FakeInjectiveConnection, info_m: str):
         print(info_m, packet)
-        connection.sock.close()
-        connection.peer_sock.close()
         connection.monitor = False
         connection.t2a_msg = "unexpected_close"
         connection.running_loop.call_soon_threadsafe(connection.t2a_event.set, )
@@ -108,6 +114,11 @@ class FakeTcpInjector(TcpInjector):
 
     def on_outbound_packet(self, packet: Packet, connection: FakeInjectiveConnection):
         if connection.sch_fake_sent:
+            # Windows sometimes sends an empty ACK (Window Update) right after the 3-way handshake.
+            # We should just forward it and ignore it, rather than aborting the bypass.
+            if packet.tcp.ack and not packet.tcp.syn and not packet.tcp.rst and not packet.tcp.fin and len(packet.tcp.payload) == 0:
+                self.w.send(packet, False)
+                return
             self.on_unexpected_packet(packet, connection, "unexpected outbound packet, recv packet after fake sent!")
             return
         if packet.tcp.syn and (not packet.tcp.ack) and (not packet.tcp.rst) and (not packet.tcp.fin) and (
